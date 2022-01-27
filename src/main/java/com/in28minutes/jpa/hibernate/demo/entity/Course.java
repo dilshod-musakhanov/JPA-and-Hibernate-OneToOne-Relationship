@@ -35,9 +35,12 @@ public class Course {
 	@OneToMany(mappedBy="course")
 	private List<Review> reviews = new ArrayList<>();
 	
+<<<<<<< HEAD
 	@ManyToMany(mappedBy="courses")
 	private List<Student> students = new ArrayList<>();
 	
+=======
+>>>>>>> a018a19379b8522f26bde130d463f966c2457721
 	@UpdateTimestamp
 	private LocalDateTime lastUpdatedDate;
 
@@ -71,6 +74,7 @@ public class Course {
 		this.reviews.remove(review);
 	}
 
+<<<<<<< HEAD
 	
 	public List<Student> getStudents() {
 		return students;
@@ -84,6 +88,8 @@ public class Course {
 		this.students.remove(students);
 	}
 	
+=======
+>>>>>>> a018a19379b8522f26bde130d463f966c2457721
 	public Long getId() {
 		return id;
 	}

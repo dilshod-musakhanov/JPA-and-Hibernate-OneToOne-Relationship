@@ -12,7 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Review;
+<<<<<<< HEAD
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
+=======
+>>>>>>> a018a19379b8522f26bde130d463f966c2457721
 import com.in28minutes.jpa.hibernate.demo.repository.CourseRepository;
 import com.in28minutes.jpa.hibernate.demo.repository.StudentRepository;
 
@@ -49,8 +52,12 @@ public class DemoApplication implements CommandLineRunner{
 		//studentRepository.saveStudentWithPassport();
 		//repository.playWithEntityManager();
 		//courseRepository.addHardcodeReviewsForCourse();
+<<<<<<< HEAD
 		//courseRepository.addReviewsForCourse(10003L, reviews);
 		//studentRepository.insertHardcodedStudentAndCourse();
 		studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
+=======
+		courseRepository.addReviewsForCourse(10003L, reviews);
+>>>>>>> a018a19379b8522f26bde130d463f966c2457721
 	}	
 }
