@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -23,6 +24,9 @@ public class Review {
 
 	private String description;
 
+	@ManyToOne
+	private Course course;
+	
 	protected Review() {
 	}
 
@@ -45,6 +49,15 @@ public class Review {
 
 	public void setRating(String rating) {
 		this.rating = rating;
+	}
+
+	
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public Long getId() {
