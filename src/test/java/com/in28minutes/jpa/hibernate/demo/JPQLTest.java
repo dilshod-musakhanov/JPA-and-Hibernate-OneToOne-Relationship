@@ -53,4 +53,68 @@ import com.in28minutes.jpa.hibernate.demo.entity.Course;
 			logger.info("Select  c  From Course c where name like '%100 Steps'-> {}",resultList);
 			//[Course[Web Services in 100 Steps], Course[Spring Boot in 100 Steps]]
 		}
+		@Test
+		
+		public void jpql_courses_without_students() {
+			TypedQuery<Course> query = 
+					    //here with jpa and jpql we refer to entities and their relationship
+					    //we do not worry about tables behind
+						em.createQuery("Select  c  From Course c where c.students is empty'", Course.class);
+			
+			List<Course> resultList = query.getResultList();
+			
+			logger.info("Results -> {}",resultList);
+		
+		}
+		@Test
+		public void jpql_courses_with_atleast_2_students() {
+			TypedQuery<Course> query = em.createQuery("Select c from Course c where size(c.students) >= 2", Course.class);
+			List<Course> resultList = query.getResultList();
+			logger.info("Results -> {}", resultList);
+			//[Course[JPA in 50 Steps]]
+		}
+
+		@Test
+		public void jpql_courses_ordered_by_students() {
+			TypedQuery<Course> query = em.createQuery("Select c from Course c order by size(c.students) desc", Course.class);
+			List<Course> resultList = query.getResultList();
+			logger.info("Results -> {}", resultList);
+		}
+		
+		//JOIN => Select c, s from Course c JOIN c.students s
+		//LEFT JOIN => Select c, s from Course c LEFT JOIN c.students s
+		@Test
+		public void join(){
+			Query query = em.createQuery("Select c, s from Course c JOIN c.students s");
+			List<Object[]> resultList = query.getResultList();
+			logger.info("Results Size -> {}", resultList.size());
+			for(Object[] result:resultList){
+				logger.info("Course{} Student{}", result[0], result[1]);
+			}
+		}
+
+		@Test
+		public void left_join(){
+			Query query = em.createQuery("Select c, s from Course c LEFT JOIN c.students s");
+			List<Object[]> resultList = query.getResultList();
+			logger.info("Results Size -> {}", resultList.size());
+			for(Object[] result:resultList){
+				logger.info("Course{} Student{}", result[0], result[1]);
+			}
+		}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

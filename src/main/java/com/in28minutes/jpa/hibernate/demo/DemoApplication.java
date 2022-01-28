@@ -63,9 +63,9 @@ public class DemoApplication implements CommandLineRunner{
 		//studentRepository.insertHardcodedStudentAndCourse();
 		//studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
         //courseRepository.addReviewsForCourse(10003L, reviews);
-		employeeRepository.insert(
-				new PartTimeEmployee("Jill", new BigDecimal("50")));
-		employeeRepository.insert(
-				new FullTimeEmployee("Jack", new BigDecimal("10000")));
+		//employeeRepository.insert(
+		//		new PartTimeEmployee("Jill", new BigDecimal("50")));
+		//employeeRepository.insert(
+		//		new FullTimeEmployee("Jack", new BigDecimal("10000")));
 	}	
 }
