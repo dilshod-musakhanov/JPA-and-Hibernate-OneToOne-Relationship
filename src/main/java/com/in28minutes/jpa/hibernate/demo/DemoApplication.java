@@ -1,5 +1,6 @@
 package com.in28minutes.jpa.hibernate.demo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
+import com.in28minutes.jpa.hibernate.demo.entity.FullTimeEmployee;
+import com.in28minutes.jpa.hibernate.demo.entity.PartTimeEmployee;
 import com.in28minutes.jpa.hibernate.demo.entity.Review;
-<<<<<<< HEAD
+
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
-=======
->>>>>>> a018a19379b8522f26bde130d463f966c2457721
+
 import com.in28minutes.jpa.hibernate.demo.repository.CourseRepository;
+import com.in28minutes.jpa.hibernate.demo.repository.EmployeeRepository;
 import com.in28minutes.jpa.hibernate.demo.repository.StudentRepository;
 
 @SpringBootApplication
@@ -29,6 +32,9 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -52,12 +58,14 @@ public class DemoApplication implements CommandLineRunner{
 		//studentRepository.saveStudentWithPassport();
 		//repository.playWithEntityManager();
 		//courseRepository.addHardcodeReviewsForCourse();
-<<<<<<< HEAD
+
 		//courseRepository.addReviewsForCourse(10003L, reviews);
 		//studentRepository.insertHardcodedStudentAndCourse();
-		studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
-=======
-		courseRepository.addReviewsForCourse(10003L, reviews);
->>>>>>> a018a19379b8522f26bde130d463f966c2457721
+		//studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("Microservices in 100 Steps"));
+        //courseRepository.addReviewsForCourse(10003L, reviews);
+		employeeRepository.insert(
+				new PartTimeEmployee("Jill", new BigDecimal("50")));
+		employeeRepository.insert(
+				new FullTimeEmployee("Jack", new BigDecimal("10000")));
 	}	
 }
